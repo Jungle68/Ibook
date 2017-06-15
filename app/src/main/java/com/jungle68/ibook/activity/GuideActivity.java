@@ -46,40 +46,47 @@ public class GuideActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        Observable.empty()
-                .observeOn(Schedulers.io())
-                .subscribe(new Subscriber<Object>() {
-                    @Override
-                    public void onCompleted() {
-                        handleData("q1.json");
-                        handleData("q2.json");
-                        handleData("q3.json");
-                        handleData("q4.json");
-                        Observable.just(mQusetionDaoImp.getDataBy_id(0))
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(new Action1<List<Question>>() {
-                                    @Override
-                                    public void call(List<Question> questions) {
-                                        if (questions.isEmpty()) {
-                                            showError();
-                                        } else {
-                                            startActivity(new Intent(GuideActivity.this, MainActivity.class));
+        if (mQusetionDaoImp.getDataBy_id(0).isEmpty()) {
+
+
+            Observable.empty()
+                    .observeOn(Schedulers.io())
+                    .subscribe(new Subscriber<Object>() {
+                        @Override
+                        public void onCompleted() {
+                            handleData("q1.json");
+                            handleData("q2.json");
+                            handleData("q3.json");
+                            handleData("q4.json");
+                            Observable.just(mQusetionDaoImp.getDataBy_id(0))
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(new Action1<List<Question>>() {
+                                        @Override
+                                        public void call(List<Question> questions) {
+                                            if (questions.isEmpty()) {
+                                                showError();
+                                            } else {
+                                                startActivity(new Intent(GuideActivity.this, MainActivity.class));
+                                                finish();
+                                            }
                                         }
-                                    }
-                                });
-                    }
+                                    });
+                        }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        e.printStackTrace();
-                        showError();
-                    }
+                        @Override
+                        public void onError(Throwable e) {
+                            e.printStackTrace();
+                            showError();
+                        }
 
-                    @Override
-                    public void onNext(Object o) {
-                    }
-                });
-
+                        @Override
+                        public void onNext(Object o) {
+                        }
+                    });
+        } else {
+            startActivity(new Intent(GuideActivity.this, MainActivity.class));
+            finish();
+        }
 
     }
 
