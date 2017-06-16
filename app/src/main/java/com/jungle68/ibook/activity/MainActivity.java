@@ -103,11 +103,11 @@ public class MainActivity extends AppCompatActivity
             // 判断是往前还是往后
             if (isNext) {
                 _id = mListData.get(mListData.size() - 1).get_id();
-                List<Question> tmp=mQusetionDaoImp.getDataBy_id(++_id);
-                if(tmp.isEmpty()){
+                List<Question> tmp = mQusetionDaoImp.getDataBy_id(++_id);
+                if (tmp.isEmpty()) {
                     Toast.makeText(MainActivity.this, "没有更多了", Toast.LENGTH_SHORT).show();
                     return;
-                }else {
+                } else {
                     mListData.addAll(tmp);
                     mCurrentListPosition++;
                 }
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity
                 if (tmp.isEmpty()) {
                     Toast.makeText(MainActivity.this, "没有更多了", Toast.LENGTH_SHORT).show();
                     return;
-                }else {
-                    mCurrentListPosition=tmp.size()-1;
+                } else {
+                    mCurrentListPosition = tmp.size() - 1;
                 }
                 tmp.addAll(mListData);
                 mListData.clear();
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity
 
     private void updateQuestion(Question question) {
 
-        mTvNumber.setText(question.getId() + "、" + question.getQuestion());
+        mTvNumber.setText("[" + question.get_id() + "]" + question.getId() + "、" + question.getQuestion());
         mTvAnster.setText("答案：" + question.getAnser());
         mCbA.setVisibility(View.VISIBLE);
         mCbB.setVisibility(View.VISIBLE);

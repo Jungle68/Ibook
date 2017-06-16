@@ -68,6 +68,7 @@ public class GuideActivity extends AppCompatActivity {
                                             } else {
                                                 startActivity(new Intent(GuideActivity.this, MainActivity.class));
                                                 finish();
+                                                overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
                                             }
                                         }
                                     });
@@ -86,6 +87,7 @@ public class GuideActivity extends AppCompatActivity {
         } else {
             startActivity(new Intent(GuideActivity.this, MainActivity.class));
             finish();
+            overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
         }
 
     }

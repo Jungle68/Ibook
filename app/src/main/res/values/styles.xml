@@ -16,5 +16,10 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <style name="BackGroundLauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:screenOrientation">portrait</item>
+        <!--<item name="android:windowBackground">>@mipmap/splash</item>-->
+        <item name="android:windowBackground">@mipmap/train</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>
