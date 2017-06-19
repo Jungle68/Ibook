@@ -33,6 +33,7 @@ public class QuestionDaoImp extends BaseDao {
                 .limit(DEFAULT_PAGESIZE)
                 .list();
     }
+
     public List<Question> getDataBy_idDesc(long _id) {
         QuestionDao questionDao = getRDaoSession().getQuestionDao();
         return questionDao.queryBuilder()
@@ -41,4 +42,62 @@ public class QuestionDaoImp extends BaseDao {
                 .orderAsc(QuestionDao.Properties._id)
                 .list();
     }
+
+    public List<Question> qureyDataByQuestion(String question) {
+        QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        return questionDao.queryBuilder()
+                .where(QuestionDao.Properties.Question.like(question))
+                .limit(DEFAULT_PAGESIZE)
+                .orderAsc(QuestionDao.Properties._id)
+                .list();
+    }
+
+    public List<Question> qureyDataByAnster(String anster) {
+        QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        return questionDao.queryBuilder()
+                .whereOr(QuestionDao.Properties.Itema.like(anster)
+                        , QuestionDao.Properties.Itemb.like(anster)
+                        , QuestionDao.Properties.Itemc.like(anster)
+                        , QuestionDao.Properties.Itemd.like(anster))
+                .limit(DEFAULT_PAGESIZE)
+                .orderAsc(QuestionDao.Properties._id)
+                .list();
+    }
+
+    public List<Question> qureyDataById(String id) {
+        QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        return questionDao.queryBuilder()
+                .where(QuestionDao.Properties.Id.like(id))
+                .limit(DEFAULT_PAGESIZE)
+                .orderAsc(QuestionDao.Properties._id)
+                .list();
+    }
+
+    public List<Question> qureyDataByName(String name) {
+        QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        return questionDao.queryBuilder()
+                .where(QuestionDao.Properties.Name.like(name))
+                .limit(DEFAULT_PAGESIZE)
+                .orderAsc(QuestionDao.Properties._id)
+                .list();
+    }
+
+    public List<Question> qureyDataByfencename(String fencename) {
+        QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        return questionDao.queryBuilder()
+                .where(QuestionDao.Properties.Fencename.like(fencename))
+                .limit(DEFAULT_PAGESIZE)
+                .orderAsc(QuestionDao.Properties._id)
+                .list();
+    }
+
+    public List<Question> qureyDataByRule(String rule) {
+        QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        return questionDao.queryBuilder()
+                .where(QuestionDao.Properties.Rule.like(rule))
+                .limit(DEFAULT_PAGESIZE)
+                .orderAsc(QuestionDao.Properties._id)
+                .list();
+    }
+
 }
