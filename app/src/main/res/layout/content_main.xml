@@ -13,56 +13,7 @@
     tools:context=".activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="点击右下角按钮载入数据"
-
-            android:textSize="18sp" />
-
-        <CheckBox
-            android:id="@+id/cb_a"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            tools:text="测试一下" />
-
-        <CheckBox
-            android:id="@+id/cb_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            tools:text="测试一下" />
-
-        <CheckBox
-            android:id="@+id/cb_c"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            tools:text="测试一下" />
-
-        <CheckBox
-            android:id="@+id/cb_d"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            tools:text="测试一下" />
-
-        <TextView
-            android:id="@+id/tv_anster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            tools:text="Hello World!" />
-
-    </LinearLayout>
+    <include layout="@layout/item_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
