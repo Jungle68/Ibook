@@ -5,4 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="search_by_id">根据 ID 搜索</string>
+    <string name="search_by_no">根据 NO 搜索</string>
+    <string name="search_by_name">根据 NAME 搜索</string>
+    <string name="search_by_fence_name">根据 FENCE_NAME 搜索</string>
+    <string name="search_by_rule">根据 RULE 搜索</string>
+    <string name="search_by_question">根据 QUESTION 搜索</string>
+    <string name="search_by_anster">根据 ANSTER 搜索</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.jungle68.ibook.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity
 
     private void updateQuestion(Question question) {
 
-        mTvNumber.setText("[" + question.get_id() + "]" + question.getId() + "、" + question.getQuestion());
+        mTvNumber.setText("[" + question.get_id() + "]  " + question.getId() + "、" + question.getQuestion());
         mTvAnster.setText("答案：" + question.getAnser());
         mCbA.setVisibility(View.VISIBLE);
         mCbB.setVisibility(View.VISIBLE);
@@ -173,17 +174,37 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int type = SearchActivity.SEARCH_TYPE_ID;
+        switch (item.getItemId()) {
+            case R.id.action_search_by_id:
+                type = SearchActivity.SEARCH_TYPE_ID;
+                break;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.action_search_by_no:
+                type = SearchActivity.SEARCH_TYPE_NO;
+                break;
+            case R.id.action_search_by_name:
+                type = SearchActivity.SEARCH_TYPE_NAME;
+                break;
+            case R.id.action_search_by_fencename:
+                type = SearchActivity.SEARCH_TYPE_FENCE_NAME;
+                break;
+            case R.id.action_search_by_rule:
+                type = SearchActivity.SEARCH_TYPE_FENCE_RULE;
+                break;
+            case R.id.action_search_by_question:
+                type = SearchActivity.SEARCH_TYPE_QUSTION;
+                break;
+            case R.id.action_search_by_anster:
+                type = SearchActivity.SEARCH_TYPE_ANSTER;
+                break;
+            default:
+
         }
-
-        return super.onOptionsItemSelected(item);
+        Intent to = new Intent(MainActivity.this, SearchActivity.class);
+        to.putExtra(SearchActivity.KEY_TYPE, type);
+        startActivity(to);
+        return true;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -202,7 +223,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_search) {
 
         }
 
