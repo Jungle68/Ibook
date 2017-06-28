@@ -45,6 +45,7 @@ public class QuestionDaoImp extends BaseDao {
 
     public List<Question> qureyDataByQuestion(String question) {
         QuestionDao questionDao = getRDaoSession().getQuestionDao();
+        question = createLike(question);
         return questionDao.queryBuilder()
                 .where(QuestionDao.Properties.Question.like(question))
                 .limit(DEFAULT_PAGESIZE)
@@ -53,6 +54,7 @@ public class QuestionDaoImp extends BaseDao {
     }
 
     public List<Question> qureyDataByAnster(String anster) {
+        anster = createLike(anster);
         QuestionDao questionDao = getRDaoSession().getQuestionDao();
         return questionDao.queryBuilder()
                 .whereOr(QuestionDao.Properties.Itema.like(anster)
@@ -74,6 +76,7 @@ public class QuestionDaoImp extends BaseDao {
     }
 
     public List<Question> qureyDataByName(String name) {
+        name = createLike(name);
         QuestionDao questionDao = getRDaoSession().getQuestionDao();
         return questionDao.queryBuilder()
                 .where(QuestionDao.Properties.Name.like(name))
@@ -83,6 +86,7 @@ public class QuestionDaoImp extends BaseDao {
     }
 
     public List<Question> qureyDataByfencename(String fencename) {
+        fencename = createLike(fencename);
         QuestionDao questionDao = getRDaoSession().getQuestionDao();
         return questionDao.queryBuilder()
                 .where(QuestionDao.Properties.Fencename.like(fencename))
@@ -92,6 +96,7 @@ public class QuestionDaoImp extends BaseDao {
     }
 
     public List<Question> qureyDataByRule(String rule) {
+        rule = createLike(rule);
         QuestionDao questionDao = getRDaoSession().getQuestionDao();
         return questionDao.queryBuilder()
                 .where(QuestionDao.Properties.Rule.like(rule))
@@ -100,4 +105,7 @@ public class QuestionDaoImp extends BaseDao {
                 .list();
     }
 
+    private String createLike(String qurey) {
+        return "%" + qurey + "%";
+    }
 }

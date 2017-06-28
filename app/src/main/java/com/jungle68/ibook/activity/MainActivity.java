@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity
 
     private void initData() {
         mCurrentId = SharePreferenceUtils.getLong(getApplicationContext(), SharePreferenceUtils.TAG_MCURRENTID);
+        System.out.println("mCurrentId = " +mCurrentId);
         mQusetionDaoImp = new QuestionDaoImp(getApplication());
         getData(false);
     }
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void updateQuestion(Question question) {
-
+        System.out.println("question = " + question.toString());
         mTvNumber.setText("[" + question.get_id() + "]  " + question.getId() + "、" + question.getQuestion());
         mTvAnster.setText("答案：" + question.getAnser());
         mCbA.setVisibility(View.VISIBLE);
@@ -261,4 +262,12 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
         SharePreferenceUtils.saveLong(getApplicationContext(), SharePreferenceUtils.TAG_MCURRENTID, mCurrentId);
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        mListData.clear();
+        initData();
+    }
+
 }

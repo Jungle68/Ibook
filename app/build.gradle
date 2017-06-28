@@ -71,6 +71,6 @@ dependencies {
 
 //    compile dataDependences.baseAdapter
     compile project(':base-adapter-library')
-    compile project(':base-adapter-library')
+    compile project(':baseadapter-recyclerview')
 
 }

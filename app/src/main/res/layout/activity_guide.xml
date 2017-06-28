@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@mipmap/train"
+    android:background="@drawable/train"
     tools:context="com.jungle68.ibook.activity.GuideActivity">
 
     <com.wang.avi.AVLoadingIndicatorView

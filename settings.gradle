@@ -1,1 +1,1 @@
-include ':app',':base-adapter-library',':base-adapter-library'
+include ':app',':base-adapter-library',':baseadapter-recyclerview'

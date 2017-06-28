@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zhy.adapter.recyclerview.utils.WrapperUtils;
 
@@ -21,7 +22,7 @@ public class EmptyWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private int mEmptyLayoutId;
 
 
-    public EmptyWrapper(RecyclerView.Adapter adapter)
+    public EmptyWrapper(CommonAdapter adapter)
     {
         mInnerAdapter = adapter;
     }

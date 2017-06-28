@@ -19,7 +19,7 @@
     <style name="BackGroundLauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:screenOrientation">portrait</item>
         <!--<item name="android:windowBackground">>@mipmap/splash</item>-->
-        <item name="android:windowBackground">@mipmap/train</item>
+        <item name="android:windowBackground">@drawable/train</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 </resources>

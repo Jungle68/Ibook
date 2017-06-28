@@ -12,4 +12,14 @@
     <string name="search_by_rule">根据 RULE 搜索</string>
     <string name="search_by_question">根据 QUESTION 搜索</string>
     <string name="search_by_anster">根据 ANSTER 搜索</string>
+
+
+
+    <string name="choose_qustion_dialog_title">记忆当前题目</string>
+    <string name="choose_qustion_dialog_message">记忆了当前题目后，会直接从当前题目开始继续查看？</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+
+
+
 </resources>
